@@ -1,11 +1,13 @@
 using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ArrowEvent : EventBase
 {
     [Header("Sprite renderer from prefab")]
     public SpriteRenderer[] Arrows;
-    private KeyCode[] Sequence;
+    [SerializeField] private KeyCode[] Sequence;
     private int _currentIndex;
     private int _arrowNb;
 
@@ -28,6 +30,20 @@ public class ArrowEvent : EventBase
     void Update()
     {
 
+    }
+    public override void StartEvent()
+    {
+
+    }
+
+    public override void EndEvent()
+    {
+
+    }
+
+    protected override IEnumerator RunEvent()
+    {
+        return null;
     }
     private void GenerateSequence()
     {
