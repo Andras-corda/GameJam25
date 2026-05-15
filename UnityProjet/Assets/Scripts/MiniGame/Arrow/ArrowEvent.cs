@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class ArrowEvent : EventBase
 {
-    [Header("Prefab d'une flèche (SpriteRenderer)")]
+    [Header("Prefab d'une flèche")]
     [SerializeField] private GameObject _arrowPrefab;
-    [SerializeField] private Transform _arrowContainer;
+
+    [Header("Slots (enfants, positions fixes)")]
+    [SerializeField] private List<Transform> _slots;
 
     [Header("Sprites directionnels")]
     [SerializeField] private Sprite _spriteUp;
     [SerializeField] private Sprite _spriteDown;
     [SerializeField] private Sprite _spriteLeft;
     [SerializeField] private Sprite _spriteRight;
-    [SerializeField] private Sprite _spriteNeutral;
-
-    [Header("Paramètres")]
-    [SerializeField] private int _arrowNb = 4;
-    [SerializeField] private float _arrowSpacing = 1f;
 
     private KeyCode[] _sequence;
     private SpriteRenderer[] _spawnedArrows;
@@ -25,7 +22,6 @@ public class ArrowEvent : EventBase
 
     public static readonly KeyCode[] PossibleKeys =
         { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
-
     private void Awake()
     {
         _currentDifficulty = 0;
@@ -35,13 +31,12 @@ public class ArrowEvent : EventBase
     {
         CheckInput();
     }
-
     public override void StartEvent()
     {
         _currentIndex = 0;
         GenerateSequence();
         SpawnArrows();
-        base.StartEvent(); // Passe en attente de focus
+        base.StartEvent();
     }
 
     public override void EndEvent()
@@ -55,21 +50,19 @@ public class ArrowEvent : EventBase
         while (isRunning)
             yield return null;
     }
-
     private void GenerateSequence()
     {
-        _sequence = new KeyCode[_arrowNb];
+        _sequence = new KeyCode[_slots.Count];
         for (int i = 0; i < _sequence.Length; i++)
             _sequence[i] = PossibleKeys[Random.Range(0, PossibleKeys.Length)];
     }
     private void SpawnArrows()
     {
-        _spawnedArrows = new SpriteRenderer[_arrowNb];
+        _spawnedArrows = new SpriteRenderer[_slots.Count];
 
-        for (int i = 0; i < _arrowNb; i++)
+        for (int i = 0; i < _slots.Count; i++)
         {
-            Vector3 pos = _arrowContainer.position + Vector3.right * i * _arrowSpacing;
-            GameObject obj = Instantiate(_arrowPrefab, pos, Quaternion.identity, _arrowContainer);
+            GameObject obj = Instantiate(_arrowPrefab, _slots[i]);
             SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
             sr.sprite = GetSprite(_sequence[i]);
             _spawnedArrows[i] = sr;
@@ -98,7 +91,7 @@ public class ArrowEvent : EventBase
         KeyCode.DownArrow => _spriteDown,
         KeyCode.LeftArrow => _spriteLeft,
         KeyCode.RightArrow => _spriteRight,
-        _ => _spriteNeutral
+        _ => _spriteUp
     };
     private void CheckInput()
     {

@@ -5,26 +5,67 @@ using System.Collections.Generic;
 public abstract class EventBase : MonoBehaviour
 {
     [Header("Base from EventBase")]
-    [SerializeField] protected int _index;
     [SerializeField] protected string _name;
     [SerializeField] protected float _timer;
     public float timeLast;
     public bool isRunning;
 
-    // Optionnel
-    [SerializeField] protected List<string> _tags;
-    // Bonus
-    protected int _currentDifficulty; // 0 => Easy 1 => Normal 2 => Hard
+    [Header("Focus")]
+    [SerializeField] private bool _needsFocus = true;
+    [SerializeField] private Collider2D _windowCollider;
 
+    protected int _currentDifficulty; // 0 = Easy | 1 = Normal | 2 = Hard
     private Coroutine _timerCoroutine;
     protected bool _eventWon = false;
+    private bool _hasFocus = false;
+    private void Update()
+    {
+        if (!_hasFocus)
+        {
+            if (_needsFocus)
+                CheckFocusClick();
+            return;
+        }
 
+        if (isRunning)
+            OnUpdate();
+    }
+    private void CheckFocusClick()
+    {
+        if (!Input.GetMouseButtonDown(0)) return;
+
+        Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (_windowCollider != null && _windowCollider.OverlapPoint(mouseWorld))
+        {
+            _hasFocus = true;
+            Debug.Log($"[Event] '{_name}' — Focus obtenu !");
+            StartEventInternal();
+        }
+    }
     public virtual void StartEvent()
     {
         _eventWon = false;
-        isRunning = true;
+        isRunning = false;
         timeLast = _timer;
 
+        if (_needsFocus)
+        {
+            _hasFocus = false;
+            Debug.Log($"[Event] '{_name}' — En attente de focus...");
+        }
+        else
+        {
+            _hasFocus = true;
+            Debug.Log($"[Event] '{_name}' — Démarrage immédiat.");
+            StartEventInternal();
+        }
+    }
+
+    private void StartEventInternal()
+    {
+        isRunning = true;
+        if (_windowCollider != null) _windowCollider.enabled = false;
         _timerCoroutine = StartCoroutine(TimerCoroutine());
         StartCoroutine(RunEvent());
     }
@@ -34,6 +75,7 @@ public abstract class EventBase : MonoBehaviour
         if (!isRunning) return;
 
         isRunning = false;
+        _hasFocus = false;
         timeLast = Mathf.Max(0f, timeLast);
 
         if (_timerCoroutine != null)
@@ -42,18 +84,21 @@ public abstract class EventBase : MonoBehaviour
             _timerCoroutine = null;
         }
 
-        // On prévient directement le GameManager
         GameManager.Instance.OnEventFinished(_eventWon, timeLast);
-
         Debug.Log($"[Event] '{_name}' terminé — Succès : {_eventWon} | Temps restant : {timeLast:F2}s");
     }
-
-    protected virtual IEnumerator RunEvent()
+    protected void WinEvent()
     {
-        yield break;
+        _eventWon = true;
+        EndEvent();
     }
-    protected virtual void OnUpdate() { }
 
+    protected void LoseEvent()
+    {
+        _eventWon = false;
+        timeLast = 0f;
+        EndEvent();
+    }
     private IEnumerator TimerCoroutine()
     {
         timeLast = _timer;
@@ -64,30 +109,16 @@ public abstract class EventBase : MonoBehaviour
             yield return null;
         }
 
-        // Timeout => défaite automatique
         timeLast = 0f;
         _eventWon = false;
         EndEvent();
     }
-
-    // Appelé par la classe enfant quand le joueur réussit
-    protected void WinEvent()
+    protected virtual IEnumerator RunEvent()
     {
-        _eventWon = true;
-        EndEvent();
+        yield break;
     }
 
-    // Appelé par la classe enfant si le joueur fait une erreur fatale
-    protected void LoseEvent()
-    {
-        _eventWon = false;
-        timeLast = 0f;
-        EndEvent();
-    }
-
-    // Pourcentage de temps restant (0.0 => 1.0)
+    protected virtual void OnUpdate() { }
     public float TimeRatio => _timer > 0f ? timeLast / _timer : 0f;
-
-    // Score brut (0–100) basé sur le temps restant
     public int ComputeScore() => _eventWon ? Mathf.RoundToInt(TimeRatio * 100f) : 0;
 }

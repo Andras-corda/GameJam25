@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d56f3457ca534142a87e62f94388eb7, type: 3}
+  m_Name: Captcha_FireHydrant
+  m_EditorClassIdentifier: Assembly-CSharp::CaptchaData
+  captchaSet:
+  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  captchaSetSelected:
+  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  questionSprite: {fileID: 5189304729200801881, guid: 4b0562a20bad29b458d65f6265aada68, type: 3}
+  _response: 000100010000010001
