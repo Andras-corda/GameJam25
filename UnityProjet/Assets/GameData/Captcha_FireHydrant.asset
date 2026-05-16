@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: Captcha_FireHydrant
   m_EditorClassIdentifier: Assembly-CSharp::CaptchaData
   captchaSet:
-  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 744566520956629750, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: -1586787849, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: 195645989, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: 334950412785652641, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: -135163289, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: -1828233239, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: 1114242318, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: -1764558951, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: -886334675, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: 1925731531, guid: a5ad416b68b91e348a285578eff50129, type: 3}
+  - {fileID: -896828426, guid: a5ad416b68b91e348a285578eff50129, type: 3}
   captchaSetSelected:
-  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 1746630558, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
-  - {fileID: 208421643, guid: 7024625203b29a446b5c9dbd8c4fd085, type: 3}
+  - {fileID: -664485007, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: -8904400043932235936, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: -1848665782, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: 938200569, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: -1115101610, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: -141909323, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: -1498104054, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: 94951049, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
+  - {fileID: -1348340946, guid: 3a744c369b2935947b1ca674cd1d3a75, type: 3}
   questionSprite: {fileID: 5189304729200801881, guid: 4b0562a20bad29b458d65f6265aada68, type: 3}
   _response: 000100010000010001

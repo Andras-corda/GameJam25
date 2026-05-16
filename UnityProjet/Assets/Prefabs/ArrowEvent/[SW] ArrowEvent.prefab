@@ -91,10 +91,10 @@ MonoBehaviour:
   - {fileID: 7148546481133003504}
   - {fileID: 5836024484043207403}
   - {fileID: 2815054800864600639}
-  _spriteUp: {fileID: -5239981223431979987, guid: a60939b850d39b148ba47d2fc66d395a, type: 3}
-  _spriteDown: {fileID: -4340745599006698805, guid: a60939b850d39b148ba47d2fc66d395a, type: 3}
-  _spriteLeft: {fileID: -2488622557235709426, guid: a60939b850d39b148ba47d2fc66d395a, type: 3}
-  _spriteRight: {fileID: -6007382888821391984, guid: a60939b850d39b148ba47d2fc66d395a, type: 3}
+  _spriteUp: {fileID: 7683705927674059623, guid: 267e24dc3f2afeb4aa0f84a964eb33e6, type: 3}
+  _spriteDown: {fileID: 4821647084823174396, guid: 267e24dc3f2afeb4aa0f84a964eb33e6, type: 3}
+  _spriteLeft: {fileID: 6895623690732174472, guid: 267e24dc3f2afeb4aa0f84a964eb33e6, type: 3}
+  _spriteRight: {fileID: -1558899705002600032, guid: 267e24dc3f2afeb4aa0f84a964eb33e6, type: 3}
 --- !u!61 &6447660872436805513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -323,9 +323,9 @@ Transform:
   m_GameObject: {fileID: 7306502182125042002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.4, y: 2.3, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.052, y: 0.0066, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4395520650727206028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -378,7 +378,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6054143395419728075, guid: 9eed091e8877dca469dcf62f4418936b, type: 3}
+  m_Sprite: {fileID: 1550497133574119944, guid: 9d8e9a9a4c33f7f44974b54ac702fcea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

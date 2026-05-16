@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public GestionPause obj;
 
     private void Awake()
     {
@@ -134,6 +135,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        obj = GameObject.Find("PauseScript").GetComponent<GestionPause>();
         _isGameOver = true;
 
         if (_currentEvent != null)
@@ -144,7 +146,6 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("[GameManager] GAME OVER");
         Debug.Log(SessionManager.Instance.GetSummary());
-
-        // TODO : charger la scène de fin / afficher l'écran de score
+        obj.ShowEndMenu();
     }
 }

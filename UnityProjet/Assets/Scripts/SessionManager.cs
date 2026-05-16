@@ -7,6 +7,7 @@
 public class SessionManager : MonoBehaviour
 {
     public static SessionManager Instance { get; private set; }
+    public GestionHud obj;
 
     [Header("Score")]
     public int TotalScore { get; private set; }
@@ -46,17 +47,22 @@ public class SessionManager : MonoBehaviour
         HasCrashed = false;
         MiniGamesPlayed = 0;
         MiniGamesWon = 0;
+        obj = GameObject.Find("HUDScript").GetComponent<GestionHud>();
+        obj.UpdateScore(0);
     }
     public void ResetSession()
     {
         InitSession();
+        obj = GameObject.Find("HUDScript").GetComponent<GestionHud>();
         Debug.Log("[Session] Session réinitialisée.");
     }
 
     public void AddScore(int basePoints)
     {
+        obj = GameObject.Find("HUDScript").GetComponent<GestionHud>();
         int gained = Mathf.RoundToInt(basePoints * Multiplier);
         TotalScore += gained;
+        obj.UpdateScore(TotalScore);
         Debug.Log($"[Session] +{gained} pts (base {basePoints} × {Multiplier}) → Total : {TotalScore}");
     }
 
